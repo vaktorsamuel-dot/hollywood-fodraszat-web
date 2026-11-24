@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Éles indításkor cseréld le a PELDA-DOMAIN.hu részt a valódi domainre. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://PELDA-DOMAIN.hu/</loc></url>
+  <url><loc>https://PELDA-DOMAIN.hu/impresszum.html</loc></url>
+  <url><loc>https://PELDA-DOMAIN.hu/adatvedelem.html</loc></url>
+  <url><loc>https://PELDA-DOMAIN.hu/aszf.html</loc></url>
+</urlset>

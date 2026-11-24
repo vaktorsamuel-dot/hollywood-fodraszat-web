@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin.html
+# Éles indításkor írd át az alábbi sort a valódi domainre:
+Sitemap: https://PELDA-DOMAIN.hu/sitemap.xml
