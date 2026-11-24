@@ -47,7 +47,7 @@ h3 { font-size: 1.35rem; color: var(--blue); }
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--blue); color: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
-.brand-logo { width: 44px; height: 44px; border-radius: 50%; background: #fff; display: grid; place-items: center; overflow: hidden; flex: none; }
+.brand-logo { width: 50px; height: 50px; border-radius: 50%; background: #fff; display: grid; place-items: center; overflow: hidden; flex: none; }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
 .brand-text { font-family: var(--head); font-size: 1.5rem; letter-spacing: .08em; text-transform: uppercase; line-height: 1; }
 .brand-text small { display: block; font: 600 .62rem var(--body); letter-spacing: .22em; opacity: .8; margin-top: 2px; }
@@ -61,9 +61,11 @@ h3 { font-size: 1.35rem; color: var(--blue); }
 /* hero */
 .hero { position: relative; color: #fff; text-align: center; padding: 56px 0 64px; overflow: hidden;
   background: linear-gradient(160deg, var(--blue) 0%, #07193a 100%); }
-.hero::before { content: ""; position: absolute; inset: 0; opacity: .12;
-  background: repeating-linear-gradient(135deg, #fff 0 2px, transparent 2px 22px); }
-.hero .wrap { position: relative; }
+.hero-bg { position: absolute; inset: 0; background: center / cover no-repeat; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(7,25,58,.50) 0%, rgba(11,42,91,.62) 55%, rgba(7,25,58,.82) 100%); }
+.hero-logo { width: 130px; height: 130px; border-radius: 50%; background: #fff; object-fit: cover; margin: 0 auto 18px; display: block; border: 4px solid #fff; box-shadow: 0 8px 28px rgba(0,0,0,.4); }
+.hero .wrap { position: relative; z-index: 2; }
 .hero h1 { font-size: clamp(2.4rem, 11.5vw, 8rem); letter-spacing: .03em; white-space: nowrap; margin: 0; text-shadow: 0 4px 0 rgba(215,38,61,.9); }
 .hero .sub { font-family: var(--head); font-size: clamp(1rem, 4.4vw, 1.9rem); letter-spacing: .16em; text-transform: uppercase; opacity: .95; margin: 10px 0 14px; }
 .hero p { max-width: 560px; margin: 0 auto 24px; font-size: 1.05rem; opacity: .92; }
@@ -149,7 +151,16 @@ textarea.in { min-height: 90px; resize: vertical; }
 
 /* galéria */
 .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; }
+.gal-item { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 12px; overflow: hidden; display: block; }
+.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: transform .25s; display: block; }
+.gal-item:hover img { transform: scale(1.05); }
+.lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,12,28,.94); display: flex; align-items: center; justify-content: center; }
+.lightbox[hidden] { display: none; }
+.lightbox > img { max-width: 94vw; max-height: 86vh; object-fit: contain; border-radius: 8px; }
+.lb-btn { position: absolute; background: rgba(255,255,255,.14); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 2rem; line-height: 1; cursor: pointer; }
+.lb-btn:hover { background: var(--red); }
+.lb-close { top: 14px; right: 14px; } .lb-prev { left: 10px; } .lb-next { right: 10px; }
+.lb-count { position: absolute; bottom: 14px; color: #fff; font-size: .9rem; opacity: .85; }
 
 /* ajándékkártya */
 .gift { display: grid; gap: 12px; background: linear-gradient(135deg, var(--blue), var(--blue2)); color: #fff; border-radius: 18px; padding: 26px; }
@@ -207,6 +218,7 @@ footer h3 { color: #fff; font-size: 1.15rem; }
   .nav a:hover { background: rgba(255,255,255,.12); }
   .nav .btn { margin: 0 0 0 8px; width: auto; padding: 10px 20px; min-height: 44px; }
   .hero { padding: 96px 0 110px; }
+  .hero-logo { width: 170px; height: 170px; }
   .hero .actions { flex-direction: row; max-width: none; justify-content: center; }
   section { padding: 80px 0; }
   .features { grid-template-columns: repeat(3, 1fr); }

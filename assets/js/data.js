@@ -13,7 +13,7 @@ window.DEFAULT_CONTENT = {
     addressNote: "D bejárat",
     facebook: "https://www.facebook.com/hollywoodfodraszat/",
     instagram: "",
-    logo: ""
+    logo: "assets/img/logo.jpg"
   },
   hero: {
     title: "Hollywood",
@@ -50,7 +50,23 @@ window.DEFAULT_CONTENT = {
   staff: [
     { id: "st1", name: "Hollywood fodrász", bio: "A név és a bemutatkozás az adminban szerkeszthető.", photo: "", active: true, timeOff: [] }
   ],
-  gallery: [],
+  gallery: [
+    { url: "assets/img/galeria/hollywood-01.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-02.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-03.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-04.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-05.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-06.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-07.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-08.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-09.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-10.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-11.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-12.jpg", alt: "Hajvágás – Hollywood fodrászat" },
+    { url: "assets/img/galeria/hollywood-13.jpg", alt: "A Hollywood fodrászat kirakata" },
+    { url: "assets/img/galeria/hollywood-14.jpg", alt: "A szalon belső tere" }
+  ],
+  heroImage: "assets/img/szalon.jpg",
   giftcard: { enabled: false, title: "Ajándékkártya", text: "Ajándékkártyát a szalonban tudsz vásárolni, tetszőleges értékben." },
   contact: { title: "Kapcsolat", text: "Kérdésed van, vagy telefonon szeretnél időpontot kérni? Hívj, vagy írj nekünk." },
   settings: { minAdvanceHours: 2, maxAdvanceDays: 60, slotStep: 30, demoMode: true },
