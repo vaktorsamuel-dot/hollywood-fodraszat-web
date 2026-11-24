@@ -23,40 +23,6 @@
   function svcById(id) { return C.services.filter(function (s) { return s.id === id; })[0]; }
   function staffById(id) { return C.staff.filter(function (s) { return s.id === id; })[0]; }
 
-  /* ---------- galéria nagyítás ---------- */
-  var lbIndex = 0, lbBound = false;
-  function lbShow(i) {
-    var n = C.gallery.length; lbIndex = (i + n) % n;
-    var g = C.gallery[lbIndex], lb = $("#lightbox");
-    lb.querySelector("img").src = g.url; lb.querySelector("img").alt = g.alt || "";
-    lb.querySelector(".lb-count").textContent = (lbIndex + 1) + " / " + n;
-    lb.hidden = false; document.body.style.overflow = "hidden";
-  }
-  function lbClose() { $("#lightbox").hidden = true; document.body.style.overflow = ""; }
-  function initLightbox() {
-    if (lbBound) return; lbBound = true;
-    var lb = document.createElement("div");
-    lb.id = "lightbox"; lb.className = "lightbox"; lb.hidden = true; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-label", "Galéria");
-    lb.innerHTML = '<button class="lb-btn lb-close" aria-label="Bezár">&times;</button><button class="lb-btn lb-prev" aria-label="Előző">&#8249;</button>' +
-      '<img alt=""><button class="lb-btn lb-next" aria-label="Következő">&#8250;</button><div class="lb-count"></div>';
-    document.body.appendChild(lb);
-    lb.addEventListener("click", function (e) {
-      if (e.target.closest(".lb-prev")) lbShow(lbIndex - 1);
-      else if (e.target.closest(".lb-next")) lbShow(lbIndex + 1);
-      else if (e.target.tagName !== "IMG") lbClose();
-    });
-    document.addEventListener("click", function (e) {
-      var t = e.target.closest("[data-gal]"); if (t) lbShow(+t.getAttribute("data-gal"));
-    });
-    document.addEventListener("keydown", function (e) {
-      if ($("#lightbox").hidden) return;
-      if (e.key === "Escape") lbClose(); else if (e.key === "ArrowLeft") lbShow(lbIndex - 1); else if (e.key === "ArrowRight") lbShow(lbIndex + 1);
-    });
-    var x0 = null;
-    lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener("touchend", function (e) { if (x0 === null) return; var d = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(d) > 50) lbShow(lbIndex + (d < 0 ? 1 : -1)); });
-  }
-
   /* ---------- statikus szekciók ---------- */
   function renderStatic() {
     var b = C.business;
@@ -65,12 +31,13 @@
     $("#brandLogo").innerHTML = b.logo
       ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.name) + ' logó">'
       : '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0B2A5B"/><text x="24" y="31" text-anchor="middle" font-family="Impact,Arial Narrow,sans-serif" font-size="22" fill="#fff">H</text><path d="M8 38h32" stroke="#D7263D" stroke-width="3" stroke-linecap="round"/></svg>';
+    var gb = $("#galBtn"); if (gb) gb.hidden = !C.gallery.length;
     $("#brandText").innerHTML = esc(b.shortName) + "<small>Fodrászat</small>";
 
     var links = [["rolunk", C.about.title], ["szolgaltatasok", "Szolgáltatások"], ["csapat", "Csapat"]];
-    if (C.gallery.length) links.push(["galeria", "Galéria"]);
     links.push(["kapcsolat", C.contact.title]);
     $("#nav").innerHTML = links.map(function (l) { return '<a href="#' + l[0] + '">' + esc(l[1]) + "</a>"; }).join("") +
+      (C.gallery.length ? '<a href="galeria.html">Galéria</a>' : "") +
       '<a class="btn btn-red" href="#foglalas">' + esc(C.hero.cta) + "</a>";
 
     $("#hero").innerHTML = (C.heroImage ? '<div class="hero-bg" style="background-image:url(\'' + esc(C.heroImage) + '\')"></div>' : "") + '<div class="wrap">' +
@@ -102,12 +69,6 @@
       return '<div class="card staff"><div class="avatar">' + (s.photo ? '<img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">' : esc((s.name || "?").charAt(0))) +
         "</div><h3>" + esc(s.name) + "</h3><p>" + esc(s.bio) + '</p><button class="btn btn-blue btn-sm" data-staff="' + esc(s.id) + '">Foglalás hozzá</button></div>';
     }).join("") + "</div></div>";
-
-    var gal = $("#galeria");
-    gal.hidden = !C.gallery.length;
-    if (C.gallery.length) gal.innerHTML = '<div class="wrap"><div class="sec-head"><h2>Galéria</h2></div><div class="grid gallery">' +
-      C.gallery.map(function (g, i) { return '<button class="gal-item" data-gal="' + i + '" aria-label="Kép megnyitása nagyban"><img loading="lazy" src="' + esc(g.url) + '" alt="' + esc(g.alt || "Hollywood fodrászat munka") + '"></button>'; }).join("") + "</div></div>";
-    initLightbox();
 
     var gc = $("#ajandekkartya");
     gc.hidden = !C.giftcard.enabled;

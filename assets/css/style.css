@@ -51,6 +51,8 @@ h3 { font-size: 1.35rem; color: var(--blue); }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
 .brand-text { font-family: var(--head); font-size: 1.5rem; letter-spacing: .08em; text-transform: uppercase; line-height: 1; }
 .brand-text small { display: block; font: 600 .62rem var(--body); letter-spacing: .22em; opacity: .8; margin-top: 2px; }
+.gal-btn { margin-left: auto; margin-right: 6px; min-height: 40px; }
+.gal-btn[hidden] { display: none; }
 .nav-toggle { background: none; border: 0; color: #fff; width: 48px; height: 48px; display: grid; place-items: center; cursor: pointer; border-radius: 10px; }
 .nav-toggle svg { width: 28px; height: 28px; }
 .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--blue); padding: 8px 18px 18px; border-top: 1px solid rgba(255,255,255,.15); }
@@ -210,6 +212,7 @@ footer h3 { color: #fff; font-size: 1.15rem; }
 
 /* asztali nézet */
 @media (min-width: 860px) {
+  .gal-btn { display: none; }
   body { padding-bottom: 0; }
   .mobile-bar { display: none; }
   .nav-toggle { display: none; }
@@ -233,3 +236,4 @@ footer h3 { color: #fff; font-size: 1.15rem; }
   .gift { grid-template-columns: 1.4fr 1fr; align-items: center; padding: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+.gallery-page { padding: 28px 0 60px; } .back { font-weight: 600; text-decoration: none; }
