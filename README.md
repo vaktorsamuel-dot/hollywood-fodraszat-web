@@ -4,7 +4,8 @@ Mobil-first, kék-piros weboldal online időpontfoglalással és admin felülett
 
 ## Mi van benne
 
-- `index.html`: nyilvános oldal (hero, rólunk, szolgáltatások, csapat, foglalás, galéria, kapcsolat, süti-sáv)
+- `index.html`: nyilvános oldal (hero, rólunk, szolgáltatások, csapat, foglalás, kapcsolat, süti-sáv)
+- `galeria.html`: külön galéria oldal nagyítással, a fejléc "Galéria" gombjáról nyílik
 - `admin.html`: admin (foglalások naptára, szolgáltatások, fodrászok, nyitvatartás, szövegek, színek, galéria, mentés/import)
 - `impresszum.html`, `adatvedelem.html`, `aszf.html`: jogi oldalak sablonja (a TODO mezőket a tulajdonos tölti ki)
 - `assets/js/data.js`: az alap tartalom (cím, telefon, nyitvatartás, szolgáltatások)

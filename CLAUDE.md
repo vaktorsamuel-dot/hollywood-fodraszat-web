@@ -37,7 +37,7 @@ Még nem ismert (TODO, a tulajdonos adja): szolgáltatások és bruttó árak, i
 
 ## Oldalstruktúra
 
-Fejléc (logó, menü: Rólunk, Szolgáltatások, Csapat, Galéria, Kapcsolat, foglalás gomb; mobilon lebegő Foglalás/Hívás/Útvonal sáv), hero nagy foglalás gombbal és "most nyitva" jelzéssel, rólunk három kiemeléssel és útvonal gombbal, szolgáltatások (leírás, időtartam, bruttó ár, "Foglalok"), csapat (fodrász kártyák), foglalás, galéria, ajándékkártya (ki/be kapcsolható), kapcsolat és nyitvatartás, lábléc (elérhetőségek, social, Adatvédelem, Impresszum, ÁSZF, szerzői jogi sor), süti-sáv (Elfogadom, Elutasítom, Beállítások; kategóriák: szükséges, preferenciák, statisztika, marketing).
+Fejléc (logó, galéria gomb (külön galeria.html oldalra), menü: Rólunk, Szolgáltatások, Csapat, Galéria, Kapcsolat, foglalás gomb; mobilon lebegő Foglalás/Hívás/Útvonal sáv), hero nagy foglalás gombbal és "most nyitva" jelzéssel, rólunk három kiemeléssel és útvonal gombbal, szolgáltatások (leírás, időtartam, bruttó ár, "Foglalok"), csapat (fodrász kártyák), foglalás, ajándékkártya (ki/be kapcsolható), kapcsolat és nyitvatartás, lábléc (elérhetőségek, social, Adatvédelem, Impresszum, ÁSZF, szerzői jogi sor), süti-sáv (Elfogadom, Elutasítom, Beállítások; kategóriák: szükséges, preferenciák, statisztika, marketing).
 Későbbi fázis, most ne építsd: mobilalkalmazás, hűségpontok, ügyfélprofil, hírlevél.
 
 ## Dizájn
